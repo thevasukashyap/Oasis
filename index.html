@@ -7,68 +7,81 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;400;800&display=swap" rel="stylesheet">
     <style>
-        * { cursor: none; } /* Custom Premium Cursor */
+        * { cursor: none; }
         body { 
-            background: #000; 
+            background: #000814; /* Deep Ocean Base */
             color: white; 
             font-family: 'Plus Jakarta Sans', sans-serif; 
             overflow-x: hidden;
             margin: 0;
         }
         .cursor {
-            width: 20px; height: 20px; border: 1px solid white;
+            width: 20px; height: 20px; border: 2px solid #00d4ff;
             border-radius: 50%; position: fixed; pointer-events: none;
             transition: transform 0.1s ease; z-index: 9999;
+            box-shadow: 0 0 15px #00d4ff;
         }
         .glass-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(0, 150, 255, 0.05);
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(0, 212, 255, 0.15);
             border-radius: 32px;
         }
-        .hero-gradient {
-            background: radial-gradient(circle at 50% 50%, #1a1a1a 0%, #000 100%);
+        .ocean-glow {
+            background: radial-gradient(circle at 50% 50%, #003566 0%, #000814 100%);
         }
-        .glow-text {
-            text-shadow: 0 0 30px rgba(255,255,255,0.3);
+        .gradient-text {
+            background: linear-gradient(135deg, #fff 30%, #00d4ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
+        .btn-ocean {
+            background: linear-gradient(90deg, #0077b6, #00b4d8);
+            box-shadow: 0 10px 30px rgba(0, 180, 216, 0.3);
         }
-        .animate-float { animation: float 6s ease-in-out infinite; }
+        @keyframes drift {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(30px, -30px); }
+            100% { transform: translate(0, 0); }
+        }
+        .animate-drift { animation: drift 10s ease-in-out infinite; }
     </style>
 </head>
-<body class="hero-gradient">
+<body class="ocean-glow">
     <div class="cursor" id="cursor"></div>
 
+    <div class="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-[120px] animate-drift"></div>
+
     <nav class="fixed w-full z-50 p-8 flex justify-between items-center">
-        <div class="text-2xl font-extrabold tracking-tighter glow-text">OASIS</div>
-        <div class="px-6 py-2 glass-card text-[10px] tracking-[0.4em] uppercase opacity-70">
-            By Vasu Kashyap
+        <div class="text-2xl font-extrabold tracking-tighter text-[#00d4ff]">OASIS</div>
+        <div class="px-6 py-2 glass-card text-[10px] tracking-[0.4em] uppercase text-cyan-200">
+            Architected by Vasu Kashyap
         </div>
     </nav>
 
-    <section class="h-screen flex flex-col justify-center items-center relative px-6">
-        <div class="absolute w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[150px] animate-pulse"></div>
-        
-        <div class="z-10 text-center">
-            <h1 class="text-6xl md:text-[120px] font-black leading-none tracking-tighter mb-8">
-                FUTURE <br> <span class="opacity-30">DEFINED.</span>
+    <section class="h-screen flex flex-col justify-center items-center relative px-6 text-center">
+        <div class="z-10">
+            <h1 class="text-6xl md:text-[110px] font-black leading-none tracking-tighter mb-8 gradient-text">
+                OCEANIC <br> <span class="opacity-40">PERFECTION.</span>
             </h1>
             
-            <div class="glass-card p-1 max-w-md mx-auto group hover:scale-105 transition-all duration-700">
-                <div class="bg-white text-black px-10 py-5 rounded-[28px] font-bold text-lg">
-                    Begin Experience
-                </div>
+            <p class="text-cyan-100/60 mb-10 max-w-lg mx-auto text-lg tracking-wide font-light">
+                Experience the depth of design. Secure, fluid, and absolutely unhackable.
+            </p>
+
+            <div class="inline-block p-1 rounded-[32px] glass-card group hover:scale-105 transition-all duration-500">
+                <button class="btn-ocean text-white px-12 py-5 rounded-[28px] font-bold text-lg tracking-tight">
+                    Dive Deep
+                </button>
             </div>
         </div>
     </section>
 
-    <footer class="fixed bottom-10 left-10 opacity-20 hover:opacity-100 transition-opacity">
-        <p class="text-xs tracking-widest">© 2026 OASIS ARCHITECTURE</p>
-        <p class="text-[10px] mt-1">ESTABLISHED BY VASU KASHYAP</p>
+    <footer class="fixed bottom-10 left-10 opacity-40">
+        <div class="flex items-center space-x-4">
+            <div class="w-10 h-[1px] bg-cyan-500"></div>
+            <p class="text-[10px] tracking-[0.5em] text-cyan-300 uppercase">Vasu Kashyap Design Labs</p>
+        </div>
     </footer>
 
     <script>
@@ -79,4 +92,5 @@
         });
     </script>
 </body>
-</html>
+    </html>
+    
